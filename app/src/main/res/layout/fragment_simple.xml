@@ -4,8 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/my_fragment_color"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     tools:context=".SimpleFragment">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
@@ -28,19 +32,44 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="8dp"
-            android:text="@string/yes"
+            android:text="@string/yes" />
 
-
-           />
 
         <RadioButton
             android:id="@+id/radio_button_no"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="8dp"
-            android:text="@string/no"
-            />
+            android:text="@string/no" />
+
     </RadioGroup>
+</LinearLayout>
 
 
+
+<LinearLayout
+android:layout_width="wrap_content"
+android:layout_height="match_parent"
+android:orientation="horizontal"  >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="@string/question_article">
+    </TextView>
+
+
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        style="@android:style/Widget.DeviceDefault.RatingBar.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:isIndicator="false"
+        android:numStars="6"
+        android:padding="@dimen/padding_standard"
+        android:rating="3.5"
+        android:stepSize="0.5" />
+
+    </LinearLayout>
 </LinearLayout>

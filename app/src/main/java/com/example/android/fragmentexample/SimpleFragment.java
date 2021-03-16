@@ -1,17 +1,22 @@
 package com.example.android.fragmentexample;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioGroup;
+import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class SimpleFragment extends Fragment {
 
     private static final int YES = 0;
     private static final int NO = 1;
+
+    private int rating;
 
     public SimpleFragment() {
         // Required empty public constructor
@@ -48,7 +53,20 @@ public class SimpleFragment extends Fragment {
 
         });
 
+
+        final RatingBar ratingBar = rootView.findViewById(R.id.ratingBar);
+
+        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
+                String RatingGiven = getString(R.string.my_rating)+String.valueOf(ratingBar.getRating());
+                Toast.makeText(getContext(),RatingGiven, Toast.LENGTH_SHORT).show();
+            }
+        });
+
         return rootView;
     }
+
+
 
 }
