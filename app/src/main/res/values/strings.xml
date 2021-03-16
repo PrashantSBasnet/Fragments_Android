@@ -47,6 +47,8 @@
     <string name="no_message2">SONG: Thanks</string>
     <string name="question_the_song">LIKE THE SONG?</string>
     <string name="my_rating">My Rating:</string>
+    <string name="next">NEXT</string>
+    <string name="btn_previous">Previous</string>
 
 
 </resources>

@@ -26,7 +26,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button mButton;
+    private Button mButton,next_btn;
     private boolean isFragmentDisplayed = false;
 
     static final String STATE_FRAGMENT = "state_of_fragment";
@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         savedInstanceState.putBoolean(STATE_FRAGMENT, isFragmentDisplayed);
         super.onSaveInstanceState(savedInstanceState);
     }
+
 
 
     @Override
@@ -57,6 +58,23 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
+
+        //for next
+        next_btn= findViewById(R.id.NEXT);
+
+        next_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setContentView(R.layout.activity_second);
+            }
+        });
+
+
+
+
+
         if (savedInstanceState != null) {
             isFragmentDisplayed =
                     savedInstanceState.getBoolean(STATE_FRAGMENT);
@@ -73,12 +91,10 @@ public class MainActivity extends AppCompatActivity {
         SimpleFragment simpleFragment = SimpleFragment.newInstance();
         // Get the FragmentManager and start a transaction.
         FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager
-                .beginTransaction();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
         // Add the SimpleFragment.
-        fragmentTransaction.add(R.id.fragment_container,
-                simpleFragment).addToBackStack(null).commit();
+        fragmentTransaction.add(R.id.fragment_container, simpleFragment).addToBackStack(null).commit();
 
         // Update the Button text.
         mButton.setText(R.string.close);
@@ -92,17 +108,21 @@ public class MainActivity extends AppCompatActivity {
         // Get the FragmentManager.
         FragmentManager fragmentManager = getSupportFragmentManager();
         // Check to see if the fragment is already showing.
-        SimpleFragment simpleFragment = (SimpleFragment) fragmentManager
-                .findFragmentById(R.id.fragment_container);
+        SimpleFragment simpleFragment = (SimpleFragment) fragmentManager.findFragmentById(R.id.fragment_container);
+
         if (simpleFragment != null) {
+
             // Create and commit the transaction to remove the fragment.
-            FragmentTransaction fragmentTransaction =
-                    fragmentManager.beginTransaction();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.remove(simpleFragment).commit();
+
         }
         // Update the Button text.
         mButton.setText(R.string.open);
         // Set boolean flag to indicate fragment is closed.
         isFragmentDisplayed = false;
     }
+
+
+
 }
