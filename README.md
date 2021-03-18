@@ -6,7 +6,7 @@
 <h4>Coding Challenge</h4>
 <ul>
   <li>The app expands the Fragment to include another question ("Like the song?") underneath the first question.</li>
-  <li>Add a RatingBar so that the user can set a rating for the song.</li>
+  <li>Includes a RatingBar so that the user can set a rating for the song.</li>
 </ul>
 
 
